@@ -14,6 +14,10 @@ int main(void)
 	n = rand();
 	printf("Last digit of %d", n);
 
+	int lastDigit = % 10;
+
+	printf("%d and is ", lastDigit);
+
 	if (lastDigit > 5)
 	{
 		printf("is greater than 5\n");
