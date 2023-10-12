@@ -10,9 +10,9 @@ int main(void)
 
 	for (number = 0; number <= 9; number++)
 	{
-			putchar('0' + number);
+		putchar('0' + number);
 
-	if (number < 9)
+		if (number < 9)
 		{
 			putchar(',');
 			putchar(' ');
@@ -21,5 +21,5 @@ int main(void)
 
 	putchar('\n');
 
-	return 0;
+	return (0);
 }
