@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * int main(void) - prints numbers, followed by a new line.
+ * print numbers- prints numbers, followed by a new line.
  *
  * Return: Always 0.
  */
