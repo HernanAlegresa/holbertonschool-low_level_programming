@@ -12,6 +12,7 @@ void print_diagonal(int n)
 	else
 	{
 		int spaces = 0;
+
 		while (n > 0)
 		{
 			int i;
