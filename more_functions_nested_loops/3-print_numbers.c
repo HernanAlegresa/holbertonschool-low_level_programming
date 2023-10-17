@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_numbers: prints numbers, followed by a new line.
+ * print_numbers - prints numbers from 0 to 9, followed by a new line.
  *
  * Return: Always 0.
  */
