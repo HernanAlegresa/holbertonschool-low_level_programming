@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * rev_string - Reverses a string.
+ * rev_string - Reverses a string, followed by a new line.
  * @s: Pointer to the string.
  */
 void rev_string(char *s)
@@ -14,6 +14,7 @@ void rev_string(char *s)
 	{
 		i++;
 	}
+	len = i;
 
 	i = 0;
 	j = len - 1;
