@@ -4,7 +4,7 @@
  * _strcmp - Compares two strings.
  * @s1: Pointer to the first string.
  * @s2: Pointer to the second string.
- * Return: 0 if the strings are equal, a positive value if s1 is greater, or a negative value if s2 is greater.
+ * Return: 0.
  */
 int _strcmp(char *s1, char *s2)
 {
