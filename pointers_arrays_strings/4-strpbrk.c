@@ -10,19 +10,19 @@ char *_strpbrk(char *s, char *accept)
 {
 	while (*s)
 	{
-		char *a = accept; // Initialize a pointer to accept in each iteration.
+		char *a = accept;
 
 		while (*a)
 		{
 			if (*s == *a)
 			{
-				return (s); // Return the pointer to the first matching byte.
+				return (s);
 			}
 			a++;
 		}
 
-		s++; // Move to the next byte in s.
+		s++;
 	}
 
-	return (NULL); // If no matching byte is found, return NULL.
+	return (NULL);
 }
