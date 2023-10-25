@@ -4,7 +4,7 @@
  * _strpbrk - Searches a string for any of a set of bytes.
  * @s: Pointer to the string to search.
  * @accept: Pointer to the string containing the bytes to search for.
- * Return: Pointer to the first occurrence in s of any byte in accept, or NULL if not found.
+ * Return: Pointer to the first occurrence in s of any byte.
  */
 char *_strpbrk(char *s, char *accept)
 {
