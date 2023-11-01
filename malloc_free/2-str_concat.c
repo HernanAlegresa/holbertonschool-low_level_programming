@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /**
  * str_concat - Concatenates two strings.
  * @s1: The first string.
@@ -29,8 +30,8 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	strcpy(result, s1);
-	strcat(result, s2);
+	strcpy(c, s1);
+	strcat(c, s2);
 
 	return (c);
 }
