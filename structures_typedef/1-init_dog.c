@@ -6,12 +6,14 @@
  * @name: Name of the dog
  * @age: Age of the dog
  * @owner: Owner of the dog
+ * Description: Defines metadata about the dog and type of dog's struct
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (d == NULL)
-		;
-	else
+
+if (d == NULL)
+	;
+else
 	{
 		d->name = name;
 		d->age = age;
