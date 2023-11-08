@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 /**
- * init_dog - the dog
+ * init_dog - the function
  * @d: dog to initialize
  * @name: Name of the dog
  * @age: Age of the dog
@@ -9,7 +9,7 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (d != NULL)
+	if (d == NULL)
 		;
 	else
 	{
