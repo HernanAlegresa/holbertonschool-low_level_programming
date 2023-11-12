@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * print_numbers - Name of function
+ * print_strings - Name of function
  * @separator: fisrt parameter
  * @n: Number of integers passed to the function
  * Return - Prints numbers.
