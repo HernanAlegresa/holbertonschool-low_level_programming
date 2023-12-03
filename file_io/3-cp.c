@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
-* copy_file - Copies the content of one file to another
+* main - the main function
 * @file_from: name of the source file
 * @file_to: name of the destination file
 * Return: 1 on success, -1 on failure.
 */
 
-int copy_file(const char *file_from, const char *file_to)
+int main(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
 	ssize_t bread, bwrite;
