@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
+	int file_from, file_to;
 	ssize_t bread, bwrite;
 	char buffer[BUFFER_SIZE];
 
@@ -19,47 +19,31 @@ int main(int argc, char *argv[])
 		return (97);
 	}
 
-	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1 || (file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		return (98);
+		if (file_from != -1)
+			close(file_from);
+
+	dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", (file_from == -1) ? "read from" : "write to", argv[1]);
+	return (file_from == -1 ? 98 : 99);
 	}
 
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd_to == -1)
+	do
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(fd_from);
-		return (99);
-	}
-
-	while ((bread = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		bwrite = write(fd_to, buffer, bread);
-
-		if (bwrite == -1 || bwrite != bread)
+		bread = read(file_from, buffer, BUFFER_SIZE);
+		if (bread == -1 || (bwrite = write(file_to, buffer, bread)) == -1 || bwrite != bread)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(fd_from);
-			close(fd_to);
-			return (99);
+			close(file_from);
+			close(file_to);
+			dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", (bread == -1) ? "read from" : "write to", argv[1]);
+			return (bread == -1 ? 98 : 99);
 		}
 	}
+	while (bread > 0);
 
-	if (bread == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close(fd_from);
-		close(fd_to);
-		return (98);
-	}
-
-	if (close(fd_from) == -1 || close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close file descriptor\n");
-		return (100);
-	}
+	close(file_from);
+	close(file_to);
 
 	return (0);
 }
