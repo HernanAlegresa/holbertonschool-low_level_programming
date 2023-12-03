@@ -20,13 +20,13 @@ int main(int argc, char *argv[])
 	}
 
 	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1 || (file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
+	if (file_from == -1 (file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
 	{
 		if (file_from != -1)
 			close(file_from);
 
-	dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", (file_from == -1) ? "read from" : "write to", argv[1]);
-	return (file_from == -1 ? 98 : 99);
+		dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", (file_from == -1) ? "read from" : "write to", argv[1]);
+		return (file_from == -1 ? 98 : 99);
 	}
 
 	do
@@ -39,8 +39,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", (bread == -1) ? "read from" : "write to", argv[1]);
 			return (bread == -1 ? 98 : 99);
 		}
-	}
-	while (bread > 0);
+	} while (bread > 0);
 
 	close(file_from);
 	close(file_to);
