@@ -1,9 +1,2 @@
-#include <stdio.h>
 #!/bin/bash
-/**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
-
-gcc "$CFILE" -o cisfun
+gcc -o "$CFILE" cisfun
