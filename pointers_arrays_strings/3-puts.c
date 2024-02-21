@@ -6,7 +6,9 @@
  */
 void _puts(char *str)
 {
-	for (; *str != '\0'; str++)
+	char *ptr;
+
+	for (ptr = str; *ptr != '\0'; ptr++)
 	{
 		putchar(*str);
 	}
