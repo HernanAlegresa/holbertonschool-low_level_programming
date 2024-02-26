@@ -25,3 +25,4 @@ The program prints the lowercase alphabet in reverse, using only the putchar fun
 Writing a program to print all the numbers of base 16 in lowercase, using only the putchar function.
 10- Patience, persistence and perspiration make an unbeatable combination for success
 This task involves printing all possible combinations of single-digit numbers, following specific formatting rules and using only the putchar function.
+
