@@ -6,6 +6,10 @@
 */
 int main(void)
 {
-	printf("_putchar\n");
+	char frase[] = "_putchar";
+	int i;
+	for (i = 0; i <= 7; i++)
+		_putchar(frase[i]);
+		_putchar('\n');
 	return (0);
 }
