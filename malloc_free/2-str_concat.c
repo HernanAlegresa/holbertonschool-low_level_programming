@@ -11,7 +11,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *c;
-	unsigned int len1 = 0, len2 = 0;
+	unsigned int len1 = 0, len2 = 0, i = 0;
 
 	if (s1 == NULL)
 	{
@@ -40,8 +40,13 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	strcpy(c, s1);
-	strcat(c, s2);
+	for (i = 0; i < len1; i++)
+		c[i] = s1[i];
+
+	for (i = 0; i < len2; i++)
+		c[len1 + i] = s2[i];
+
+	c[len1 + len2] = '\0';
 
 	return (c);
 }
