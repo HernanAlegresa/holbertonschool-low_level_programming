@@ -8,36 +8,35 @@
  * @s1: the first parameter type char
  * @s2: the second parameter type char
  * @n: the third parameter type itn unsigned
- *
- *
  * Return: A functio that concatenates two strings
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-
-char *result;
+	char *concat;
+	unsigned int length = n;
+	unsigned int i, j;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
-
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
 
-	result = (char *)malloc(strlen(s1) + n + 1);
+	for (i = 0; s1[i]; i++)
+		length++;
 
-	if (result == NULL)
-	{
+	concat = malloc(sizeof(char) * (length + 1));
+	if (concat == NULL)
 		return (NULL);
-	}
 
-	strcpy(result, s1);
-	strncat(result, s2, n);
+	j = 0;
+	for (i = 0; s1[i]; i++)
+		concat[j++] = s1[i];
 
-	return (result);
+	for (i = 0; s2[i] && i < n; i++)
+		concat[j++] = s2[i];
 
+	concat[j] = '\0';
+
+	return (concat);
 }
