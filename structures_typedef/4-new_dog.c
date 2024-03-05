@@ -9,35 +9,32 @@
  * @owner: Owner of the dog
  * Return: A pointer to the newly created dog, or NULL if it fails
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	dog_t *newdog = malloc(sizeof(dog_t));
 
-dog_t *newdog = (dog_t *)malloc(sizeof(dog_t));
+	if (newdog == NULL)
+	{
+		return (NULL);
+	}
 
-if (newdog == NULL)
-{
-	return (NULL);
+	newdog->name = my_strdup(name);
+	if (newdog->name == NULL)
+	{
+		free(newdog);
+		return (NULL);
+	}
 
-}
+	newdog->owner = my_strdup(owner);
+	if (newdog->owner == NULL)
+	{
+		free(newdog->name);
+		free(newdog);
+		return (NULL);
+	}
 
-newdog->name = strdup(name);
-if (newdog->name == NULL)
-{
-	free(newdog);
-	return (NULL);
-}
+	newdog->age = age;
 
-newdog->owner = strdup(owner);
-
-if (newdog->owner == NULL)
-{
-	free(newdog->name);
-	free(newdog);
-	return (NULL);
-
-}
-
-newdog->age = age;
-
-return (newdog);
+	return (newdog);
 }
