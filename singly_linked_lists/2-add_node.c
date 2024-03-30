@@ -25,4 +25,10 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
+	node1->len = strlen(str);
+	node1->next = *head;
+
+	*head = node1;
+
+	return (node1);
 }
