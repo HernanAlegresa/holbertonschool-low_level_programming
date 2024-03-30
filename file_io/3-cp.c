@@ -18,4 +18,17 @@ int main(int argc, char *argv[])
 		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
 		return (97);
 	}
+
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		return (98);
+	}
+
+	if (file_to == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		close(file_from);
+		return (99);
 }
