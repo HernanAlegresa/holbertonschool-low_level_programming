@@ -1,11 +1,10 @@
 #include "lists.h"
 
 /**
- * list_len - The function
- * @h: the list_t list
- *
- * Return: number of elements in the list
- */
+* list_len - The function
+* @h: the list_t list
+* Return: number of elements in the list
+*/
 
 size_t list_len(const list_t *h)
 {
@@ -14,7 +13,7 @@ size_t list_len(const list_t *h)
 	while (h != NULL)
 	{
 		c++;
-		h = h->n;
+		h = h->next;
 	}
 
 	return (c);
