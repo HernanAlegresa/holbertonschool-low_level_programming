@@ -26,9 +26,34 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (file_to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		close(file_from);
 		return (99);
+	}
+
+	do
+	{
+		bread = read(file_from, buffer, BUFFER_SIZE);
+		if (bread == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			close(file_from);
+			close(file_to);
+			return (98);
+		}
+
+		bwrite = write(file_to, buffer, bread);
+		if (bwrite == -1 || bwrite != bread)
+		{
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			close(file_from);
+			close(file_to);
+			return (99);
+		}
+	} while (bread > 0);
+
+	return (0);
 }
