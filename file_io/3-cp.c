@@ -55,5 +55,11 @@ int main(int argc, char *argv[])
 		}
 	} while (bread > 0);
 
+	if (close(file_from) == -1 || close(file_to) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", (close(file_from) == -1) ? file_from : file_to);
+		return (100);
+	}
+
 	return (0);
 }
