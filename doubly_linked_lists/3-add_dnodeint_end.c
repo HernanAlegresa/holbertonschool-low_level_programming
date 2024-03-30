@@ -11,6 +11,8 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *nodeX, *nodeLast;
 
+	nodeX = malloc(sizeof(dlistint_t));
+
 	if (nodeX == NULL)
 	{
 		return (NULL);
