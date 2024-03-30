@@ -34,8 +34,7 @@ int main(int argc, char *argv[])
 		return (99);
 	}
 
-	do
-	{
+	do {
 		bread = read(file_from, buffer, BUFFER_SIZE);
 		if (bread == -1)
 		{
