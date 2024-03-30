@@ -8,3 +8,14 @@
 */
 
 int main(int argc, char *argv[])
+{
+	int file_from, file_to;
+	ssize_t bread, bwrite;
+	char buffer[BUFFER_SIZE];
+
+	if (argc != 3)
+	{
+		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
+		return (97);
+	}
+}
